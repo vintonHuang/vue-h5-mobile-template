@@ -3,28 +3,34 @@
  * @Date: 2022-03-04 21:17:53
  * @Description: file content
  */
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv, UserConfigExport, ConfigEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 import postCssPxToRem from "postcss-pxtorem";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import Components from "unplugin-vue-components/vite";
 import { VantResolver } from "unplugin-vue-components/resolvers";
-// import styleImport, { VantResolve } from "vite-plugin-style-import";
+import { viteMockServe } from "vite-plugin-mock";
+import styleImport, { VantResolve } from "vite-plugin-style-import";
 // https://vitejs.dev/config/
-export default ({ mode }) => {
+export default ({ mode, command }: ConfigEnv): UserConfigExport => {
+  console.log("===mode====", mode, command);
   const env = loadEnv(mode, process.cwd());
   return defineConfig({
     base: env.VITE_APP_BASE_URL,
     plugins: [
       vue(),
-      // styleImport({
-      //   resolves: [VantResolve()],
-      // }),
+      styleImport({
+        resolves: [VantResolve()],
+      }),
       Components({
         resolvers: [VantResolver()],
       }),
       vueJsx({}),
+      viteMockServe({
+        mockPath: "mock", // ↓解析根目录下的mock文件夹
+        localEnabled: command === "serve",
+      }),
     ],
     resolve: {
       alias: {
