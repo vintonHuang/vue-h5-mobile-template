@@ -7,20 +7,20 @@
  * @name createVitePlugins
  * @description 封装plugins数组统一调用
  */
-import type { Plugin } from "vite";
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import vueSetupExtend from "vite-plugin-vue-setup-extend";
-import { ConfigSvgIconsPlugin } from "./svgIcons";
-import { AutoRegistryComponents } from "./component";
-import { AutoImportDeps } from "./autoImport";
-import { ConfigMockPlugin } from "./mock";
-import { ConfigCompressPlugin } from "./compress";
-import { ConfigPagesPlugin } from "./pages";
-import { ConfigRestartPlugin } from "./restart";
-import { ConfigProgressPlugin } from "./progress";
-import { ConfigEruda } from "./eruda";
-import { ConfigStyleImport } from "./styleImport";
+import type { Plugin } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import vueSetupExtend from 'vite-plugin-vue-setup-extend';
+import { ConfigSvgIconsPlugin } from './svgIcons';
+import { AutoRegistryComponents } from './component';
+import { AutoImportDeps } from './autoImport';
+import { ConfigMockPlugin } from './mock';
+import { ConfigCompressPlugin } from './compress';
+import { ConfigPagesPlugin } from './pages';
+import { ConfigRestartPlugin } from './restart';
+import { ConfigProgressPlugin } from './progress';
+import { ConfigEruda } from './eruda';
+import { ConfigStyleImport } from './styleImport';
 
 export function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (Plugin | Plugin[])[] = [

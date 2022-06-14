@@ -4,11 +4,11 @@
  * @Description: file content
  */
 // src/i18n/index.ts
-import { createI18n } from "vue-i18n";
-import messages from "./getMessage";
+import { createI18n } from 'vue-i18n';
+import messages from './getMessage';
 const i18n = createI18n({
   legacy: false, // 这里需要记录一下
-  locale: "en", // set locale
+  locale: 'en', // set locale
   messages,
 });
 

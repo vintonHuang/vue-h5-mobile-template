@@ -4,12 +4,12 @@
  * @Description: file content
  */
 
-import { createRouter, createWebHistory } from "vue-router";
-import routes from "virtual:generated-pages";
+import { createRouter, createWebHistory } from 'vue-router';
+import routes from 'virtual:generated-pages';
 
 routes.push({
-  path: "/",
-  redirect: "/login",
+  path: '/',
+  redirect: '/login',
 });
 //导入生成的路由数据
 const router = createRouter({

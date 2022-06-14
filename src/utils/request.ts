@@ -3,24 +3,21 @@
  * @Date: 2022-03-11 15:22:17
  * @Description: file content
  */
-import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
-import { gwInitA, gwInitB, gwRequest } from "vizier-gateway";
-import { gateway, passErrorCode } from "@/config";
-import Storage from "./storage";
-import { baseModel } from "@/interfaces/common";
+import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import { gwInitA, gwInitB, gwRequest } from 'vizier-gateway';
+import { gateway, passErrorCode } from '@/config';
+import Storage from './storage';
+import { baseModel } from '@/interfaces/common';
 // 设置接口超时时间
 axios.defaults.timeout = 60000;
-axios.defaults.baseURL =
-  import.meta.env.VITE_RESOURSE_BASW_URL === "PRO"
-    ? `${process.env.BASE_URL}api/`
-    : "/api";
+axios.defaults.baseURL = import.meta.env.VITE_RESOURSE_BASW_URL === 'PRO' ? `${process.env.BASE_URL}api/` : '/api';
 // 网关配置
 gwInitA(gateway.key);
 gwInitB(gateway.secret);
 //http request 拦截器
 axios.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    const accessToken = Storage.get("token");
+    const accessToken = Storage.get('token');
     if (accessToken) {
       config.headers!.Authorization = `Bearer ${accessToken}`;
     }
@@ -28,7 +25,7 @@ axios.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 //http response 拦截器
@@ -60,26 +57,22 @@ axios.interceptors.response.use(
       return Promise.reject(response.data);
     }
     // ElMessage.warning("网络连接异常,请稍后再试!");
-  }
+  },
 );
 
 // 封装 GET POST 请求并导出
-export function request<T>(
-  url = "",
-  params = {},
-  type = "POST"
-): Promise<AxiosResponse<T>> {
+export function request<T>(url = '', params = {}, type = 'POST'): Promise<AxiosResponse<T>> {
   //设置 url params type 的默认值
   return new Promise((resolve, reject) => {
     let promise;
-    if (type.toUpperCase() === "GET") {
+    if (type.toUpperCase() === 'GET') {
       promise = axios({
         url,
         params,
       });
-    } else if (type.toUpperCase() === "POST") {
+    } else if (type.toUpperCase() === 'POST') {
       promise = axios({
-        method: "POST",
+        method: 'POST',
         url,
         data: params,
       });
