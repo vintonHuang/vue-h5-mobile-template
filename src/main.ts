@@ -11,6 +11,4 @@ import "./utils/rem";
 import "./utils/vizier";
 import i18n from "./i18n";
 import "/@/styles/index.less";
-createApp(App).use(router).use(i18n)
-.use(Pinia)
-.mount("#app");
+createApp(App).use(router).use(i18n).use(Pinia).mount("#app");
