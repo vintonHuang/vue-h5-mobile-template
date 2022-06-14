@@ -91,6 +91,6 @@ export function request<T>(
       })
       .catch((err) => {
         reject(err);
-      })
+      });
   });
 }

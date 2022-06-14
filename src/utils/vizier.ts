@@ -3,7 +3,7 @@
  * @Date: 2022-03-30 10:25:27
  * @Description: file content
  */
-import { vizier } from "dc-vizier-track"
+import { vizier } from "dc-vizier-track";
 vizier.init({
   // 配置表,以下配置为常用配置以及示例，详细配置表参见附表1
 
@@ -62,5 +62,5 @@ vizier.init({
   // 提供set_base_data支持prop为对象，或prop为key，to为val
   // 目前活动页都是单页可通过baseData设置page_name(页面名称，默认title)/page_seq(页面编号)
   baseData: {},
-})
-window.vizier = vizier.instance
+});
+window.vizier = vizier.instance;
