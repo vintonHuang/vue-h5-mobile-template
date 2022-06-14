@@ -4,38 +4,38 @@
  * @Description: file content
  */
 import { defineConfig, loadEnv, UserConfigExport, ConfigEnv } from "vite";
-import vue from "@vitejs/plugin-vue";
-import path from "path";
+import path, { resolve } from "path";
 import postCssPxToRem from "postcss-pxtorem";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import Components from "unplugin-vue-components/vite";
-import { VantResolver } from "unplugin-vue-components/resolvers";
-import { viteMockServe } from "vite-plugin-mock";
-import styleImport, { VantResolve } from "vite-plugin-style-import";
+import { createVitePlugins } from "./config/vite/plugins";
 // https://vitejs.dev/config/
+const pathResolve = (dir: string) => {
+  return resolve(process.cwd(), ".", dir);
+};
+
 export default ({ mode, command }: ConfigEnv): UserConfigExport => {
-  console.log("===mode====", mode, command);
+  const isProduction = command === "build";
   const env = loadEnv(mode, process.cwd());
+  console.log("=====>是否是生产环境====>", isProduction);
   return defineConfig({
     base: env.VITE_APP_BASE_URL,
-    plugins: [
-      vue(),
-      styleImport({
-        resolves: [VantResolve()],
-      }),
-      Components({
-        resolvers: [VantResolver()],
-      }),
-      vueJsx({}),
-      viteMockServe({
-        mockPath: "mock", // ↓解析根目录下的mock文件夹
-        localEnabled: command === "serve",
-      }),
-    ],
+    plugins: createVitePlugins(isProduction),
     resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "src"),
-      },
+      alias: [
+        {
+          find: "vue-i18n",
+          replacement: "vue-i18n/dist/vue-i18n.cjs.js",
+        },
+        // /@/xxxx => src/xxxx
+        {
+          find: /\/@\//,
+          replacement: pathResolve("src") + "/",
+        },
+        // /#/xxxx => types/xxxx
+        {
+          find: /\/#\//,
+          replacement: pathResolve("types") + "/",
+        },
+      ],
     },
     server: {
       host: "0.0.0.0",
@@ -49,6 +49,13 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
         compress: {
           drop_console: true,
           drop_debugger: true,
+        },
+      },
+      rollupOptions: {
+        output: {
+          chunkFileNames: "static/js/[name]-[hash].js",
+          entryFileNames: "static/js/[name]-[hash].js",
+          assetFileNames: "static/[ext]/[name]-[hash].[ext]",
         },
       },
     },

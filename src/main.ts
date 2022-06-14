@@ -4,13 +4,13 @@
  * @Description: file content
  */
 import { createApp } from "vue";
-import Pinia from "@/store/index";
+import Pinia from "/@/store/index";
 import App from "./App.vue";
-import router from "@/router/index";
+import router from "/@/router/index";
 import "./utils/rem";
 import "./utils/vizier";
 import i18n from "./i18n";
-import "@/styles/index.less";
+import "/@/styles/index.less";
 createApp(App).use(router).use(i18n)
 .use(Pinia)
 .mount("#app");

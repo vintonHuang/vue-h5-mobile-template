@@ -1,0 +1,26 @@
+/*
+ * @Author: Vinton
+ * @Date: 2022-06-14 15:12:34
+ * @Description: file content
+ */
+/**
+ * @name AutoImportDeps
+ * @description 按需加载，自动引入
+ */
+import AutoImport from "unplugin-auto-import/vite";
+// import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+
+export const AutoImportDeps = () => {
+  return AutoImport({
+    dts: "types/auto-imports.d.ts",
+    imports: [
+      "vue",
+      "pinia",
+      "vue-router",
+      {
+        "@vueuse/core": [],
+      },
+    ],
+    // resolvers: [ElementPlusResolver()],
+  });
+};

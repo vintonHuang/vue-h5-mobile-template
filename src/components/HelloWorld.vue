@@ -6,8 +6,9 @@
 <script setup lang="ts">
 defineProps<{ msg: string }>();
 const getData = () => {
-  fetch("/api/getUsers")
+  fetch("/api/login")
     .then((response) => {
+      console.log("/api/getUsers", response);
       return response.json();
     })
     .then((data) => {

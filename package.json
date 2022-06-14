@@ -1,10 +1,12 @@
 {
-  "name": "vite_vue3_ts",
+  "name": "vue-h5-template",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --mode development",
     "build:dev": "vue-tsc --noEmit && vite build --mode development",
+    "build:sit": "vue-tsc --noEmit && vite build --mode sit",
+    "build:pre": "vue-tsc --noEmit && vite build --mode pre",
     "build:pro": "vue-tsc --noEmit && vite build --mode production",
     "preview": "vite preview",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
@@ -13,7 +15,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vueuse/core": "^8.6.0",
     "axios": "^0.19.2",
+    "consola": "^2.15.3",
     "dc-vizier-track": "^1.0.6",
     "eslint-plugin-vue": "^8.5.0",
     "lodash-es": "^4.17.21",
@@ -46,10 +50,18 @@
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4",
+    "unplugin-auto-import": "^0.8.8",
     "unplugin-vue-components": "^0.19.6",
     "vite": "^2.8.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-eruda": "^1.0.1",
     "vite-plugin-mock": "^2.9.6",
-    "vite-plugin-style-import": "^1.4.1",
+    "vite-plugin-pages": "^0.24.0",
+    "vite-plugin-progress": "^0.0.2",
+    "vite-plugin-restart": "^0.1.1",
+    "vite-plugin-style-import": "^2.0.0",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue-tsc": "^0.29.8"
   },
   "lint-staged": {
