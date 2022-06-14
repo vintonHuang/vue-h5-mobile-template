@@ -6,13 +6,13 @@
 <script setup lang="ts">
   defineProps<{ msg: string }>();
   const getData = () => {
-    fetch('/api/login')
+    fetch("/api/login")
       .then((response) => {
-        console.log('/api/getUsers', response);
+        console.log("/api/getUsers", response);
         return response.json();
       })
       .then((data) => {
-        console.log('/api/getUsers', data);
+        console.log("/api/getUsers", data);
       });
   };
 </script>

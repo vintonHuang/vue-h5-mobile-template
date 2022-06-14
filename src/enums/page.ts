@@ -4,5 +4,5 @@
  * @Description: file content
  */
 export enum STATIC_STATE {
-  token = 'ACCESS_TOKEN',
+  token = "ACCESS_TOKEN",
 }
