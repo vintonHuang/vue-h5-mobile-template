@@ -1,3 +1,8 @@
+/*
+ * @Author: Vinton
+ * @Date: 2022-06-14 21:51:08
+ * @Description: file content
+ */
 /// <reference types="vite/client" />
 
 declare module "*.vue" {
