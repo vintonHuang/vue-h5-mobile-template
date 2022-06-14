@@ -78,6 +78,10 @@
       "prettier --write",
       "git add"
     ],
+    "*.{scss,less,styl,html}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
     "*.{ts,tsx,vue,js,jsx}": "eslint --cache --fix"
   }
 }
