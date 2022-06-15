@@ -41,8 +41,8 @@ vizier.init({
       "60gijjegkh",
       "91",
       "81",
-      "",
-    ],
+      ""
+    ]
   },
 
   // 上报数据实现形式  post, get, img, script, 默认post可不设置
@@ -51,7 +51,7 @@ vizier.init({
   // 单页应用配置，默认单页且history，可不设置
   SPA: {
     is: true,
-    mode: "history",
+    mode: "history"
   },
 
   // PV指标自动触发配置,默认开启，可不设置
@@ -61,6 +61,6 @@ vizier.init({
   // 提供set_base_data（prop，to）方法，可以在任意时候增加baseData，
   // 提供set_base_data支持prop为对象，或prop为key，to为val
   // 目前活动页都是单页可通过baseData设置page_name(页面名称，默认title)/page_seq(页面编号)
-  baseData: {},
+  baseData: {}
 });
 window.vizier = vizier.instance;

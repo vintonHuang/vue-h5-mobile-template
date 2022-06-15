@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
   export default {
-    name: "BaseModal",
+    name: "BaseModal"
   };
 </script>
 <script setup lang="ts">
@@ -28,8 +28,8 @@
       show: false,
       size: "small",
       top: -40,
-      closeable: false,
-    },
+      closeable: false
+    }
   );
   const emit = defineEmits(["update:show", "closeModal"]);
   const showModal = useVModel(props, "show", emit);

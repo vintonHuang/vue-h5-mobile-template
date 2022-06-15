@@ -25,7 +25,7 @@ axios.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  },
+  }
 );
 
 //http response 拦截器
@@ -57,7 +57,7 @@ axios.interceptors.response.use(
       return Promise.reject(response.data);
     }
     // ElMessage.warning("网络连接异常,请稍后再试!");
-  },
+  }
 );
 
 // 封装 GET POST 请求并导出
@@ -68,13 +68,13 @@ export function request<T>(url = "", params = {}, type = "POST"): Promise<AxiosR
     if (type.toUpperCase() === "GET") {
       promise = axios({
         url,
-        params,
+        params
       });
     } else if (type.toUpperCase() === "POST") {
       promise = axios({
         method: "POST",
         url,
-        data: params,
+        data: params
       });
     }
     //处理返回

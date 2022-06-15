@@ -7,6 +7,6 @@ import { createStyleImportPlugin, NutuiResolve, VantResolve } from "vite-plugin-
 
 export const ConfigStyleImport = () => {
   return createStyleImportPlugin({
-    resolves: [NutuiResolve(), VantResolve()],
+    resolves: [NutuiResolve(), VantResolve()]
   });
 };

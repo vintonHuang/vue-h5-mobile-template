@@ -9,7 +9,7 @@ import messages from "./getMessage";
 const i18n = createI18n({
   legacy: false, // 这里需要记录一下
   locale: "en", // set locale
-  messages,
+  messages
 });
 
 export default i18n;

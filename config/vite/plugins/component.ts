@@ -20,6 +20,6 @@ export const AutoRegistryComponents = () => {
     directives: true,
     include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
     exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
-    resolvers: [VantResolver(), VueUseComponentsResolver()],
+    resolvers: [VantResolver(), VueUseComponentsResolver()]
   });
 };

@@ -13,7 +13,7 @@ export interface IProps {
 }
 const defaultOpt = {
   // 创建默认参数
-  duration: 3000,
+  duration: 3000
 };
 
 export interface ResultParams {
@@ -45,7 +45,7 @@ const Toast = (options: IProps): ResultParams => {
     }, opt.duration);
   }
   return {
-    destroy: destroy,
+    destroy: destroy
   };
 };
 export default Toast;

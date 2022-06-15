@@ -41,7 +41,7 @@ export function createVitePlugins(isBuild: boolean) {
     // 监听配置文件改动重启
     ConfigRestartPlugin(),
     // 构建时显示进度条
-    ConfigProgressPlugin(),
+    ConfigProgressPlugin()
   ];
 
   //styleImport

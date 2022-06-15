@@ -14,7 +14,7 @@
   import { defineComponent, computed, PropType } from "vue";
   const backMap = {
     warning: "linear-gradient(#84a842 0%, #9dc022 100%)",
-    success: "linear-gradient(#F4D176 0%, #F5D77F 100%)",
+    success: "linear-gradient(#F4D176 0%, #F5D77F 100%)"
   };
   export type ToastType = "success" | "warning";
   export default defineComponent({
@@ -22,29 +22,29 @@
     props: {
       value: {
         type: String,
-        default: "",
+        default: ""
       },
       duration: {
         type: Number,
-        default: 3000,
+        default: 3000
       },
       type: {
         type: String as PropType<ToastType>,
-        default: "success",
+        default: "success"
       },
       color: {
         type: String,
-        default: "#fff",
-      },
+        default: "#fff"
+      }
     },
     setup(props) {
       const background = computed(() => {
         return backMap[props.type];
       });
       return {
-        background,
+        background
       };
-    },
+    }
   });
 </script>
 

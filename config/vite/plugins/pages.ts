@@ -13,6 +13,6 @@ export const ConfigPagesPlugin = () => {
     pagesDir: [{ dir: "src/view", baseRoute: "" }],
     extensions: ["vue", "md"],
     exclude: ["**/components/*.vue"],
-    nuxtStyle: true,
+    nuxtStyle: true
   });
 };

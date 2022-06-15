@@ -33,7 +33,7 @@ export const createStorage = ({ prefixKey = "", storage = localStorage } = {}) =
     set(key: string, value: any, expire = DEFAULT_CACHE_TIME) {
       const stringData = JSON.stringify({
         value,
-        expire: expire !== null ? new Date().getTime() + expire * 1000 : null,
+        expire: expire !== null ? new Date().getTime() + expire * 1000 : null
       });
       this._storage.setItem(this._getKey(key), stringData);
     }

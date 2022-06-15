@@ -18,6 +18,6 @@ export const ConfigMockPlugin = (isBuild: boolean) => {
     injectCode: `
        import { setupProdMockServer } from '../mock/_createProdMockServer';
        setupProdMockServer();
-       `,
+       `
   });
 };
