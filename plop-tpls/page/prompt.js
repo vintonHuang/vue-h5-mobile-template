@@ -1,3 +1,8 @@
+/*
+ * @Author: Vinton
+ * @Date: 2022-06-15 13:52:07
+ * @Description: file content
+ */
 const path = require("path");
 const fs = require("fs");
 
@@ -6,7 +11,7 @@ function getFolder(path) {
   const files = fs.readdirSync(path);
   files.forEach(function (item) {
     let stat = fs.lstatSync(path + "/" + item);
-    if (stat.isDirectory() === true && item != "components") {
+    if (stat.isDirectory() === true) {
       components.push(path + "/" + item);
       components.push.apply(components, getFolder(path + "/" + item));
     }
@@ -21,33 +26,33 @@ module.exports = {
       type: "list",
       name: "path",
       message: "请选择页面创建目录",
-      choices: getFolder("src/pages"),
+      choices: getFolder("src/view")
     },
     {
       type: "input",
-      name: "name",
-      message: "请输入文件名",
+      name: "component",
+      message: "请输入vue中组件名称",
       validate: (v) => {
         if (!v || v.trim === "") {
-          return "文件名不能为空";
+          return "组件名称不能为空";
         } else {
           return true;
         }
-      },
-    },
+      }
+    }
   ],
   actions: (data) => {
-    let relativePath = path.relative("src/pages", data.path);
+    let relativePath = path.relative("src/view", data.path);
     const actions = [
       {
         type: "add",
-        path: `${data.path}/{{dotCase name}}.vue`,
+        path: `${data.path}/index.vue`,
         templateFile: "plop-tpls/page/index.hbs",
         data: {
-          componentName: `${relativePath} ${data.name}`,
-        },
-      },
+          componentName: `${relativePath}${data.component}`
+        }
+      }
     ];
     return actions;
-  },
+  }
 };

@@ -13,7 +13,8 @@
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "prettier": "prettier --write .",
     "commit": "npm run prettier && git add . && git-cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "plop": "plop"
   },
   "dependencies": {
     "@vueuse/core": "^8.6.0",
@@ -48,6 +49,7 @@
     "lint-staged": ">=10",
     "mockjs": "^1.1.0",
     "mrm": "^3.0.10",
+    "plop": "^3.1.1",
     "postcss-less": "^6.0.0",
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^2.5.1",

@@ -1,3 +1,8 @@
+/*
+ * @Author: Vinton
+ * @Date: 2022-06-15 13:52:07
+ * @Description: file content
+ */
 const fs = require("fs");
 function getFolder(path) {
   let components = [];
@@ -18,7 +23,7 @@ module.exports = {
       type: "list",
       name: "path",
       message: "请选择页面创建目录",
-      choices: getFolder("src/store"),
+      choices: getFolder("src/store")
     },
     {
       type: "input",
@@ -30,21 +35,21 @@ module.exports = {
         } else {
           return true;
         }
-      },
-    },
+      }
+    }
   ],
   actions: (data) => {
     const actions = [
       {
         type: "add",
-        path: `${data.path}/{{camelCase name}}/index.ts`,
-        templateFile: "plop-tpls/store/index.hbs",
+        path: `${data.path}/index.ts`,
+        templateFile: "plop-tpls/store/index.hbs"
       },
       {
         type: "add",
-        path: `${data.path}/{{camelCase name}}/types.ts`,
-      },
+        path: `${data.path}/types.ts`
+      }
     ];
     return actions;
-  },
+  }
 };

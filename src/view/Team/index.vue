@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script setup name="{{properCase componentName}}">
+<script setup name="TeamPage">
   // const { proxy } = getCurrentInstance() // const router = useRouter() // const route = useRoute()
 </script>
 
