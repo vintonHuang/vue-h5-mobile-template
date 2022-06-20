@@ -5,9 +5,9 @@
  */
 import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 import { gwInitA, gwInitB, gwRequest } from "vizier-gateway";
-import { gateway, passErrorCode } from "@/config";
+import { gateway, passErrorCode } from "/@/config";
 import Storage from "./storage";
-import { baseModel } from "@/interfaces/common";
+import { baseModel } from "/@/interfaces/common";
 // 设置接口超时时间
 axios.defaults.timeout = 60000;
 axios.defaults.baseURL = import.meta.env.VITE_RESOURSE_BASW_URL === "PRO" ? `${process.env.BASE_URL}api/` : "/api";
@@ -37,11 +37,6 @@ axios.interceptors.response.use(
         // 如果token过期了，需要清楚浏览器缓存的token，重新去做请求
         Storage.clear();
       }
-      // Toast({
-      //   // @ts-ignore：嵌套过深
-      //   value: i18n.global.t(String(code)),
-      //   type: "warning",
-      // });
       return Promise.reject(response.data);
     }
     return Promise.resolve(response);
@@ -50,10 +45,6 @@ axios.interceptors.response.use(
     const { response } = error;
     if (response) {
       // 请求已发出，但是不在2xx的范围,统一提示请求异常
-      // Toast({
-      //   value: i18n.global.t("212"),
-      //   type: "warning",
-      // });
       return Promise.reject(response.data);
     }
     // ElMessage.warning("网络连接异常,请稍后再试!");
