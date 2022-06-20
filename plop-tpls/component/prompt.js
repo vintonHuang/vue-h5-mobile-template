@@ -5,7 +5,7 @@
  */
 const path = require("path");
 const fs = require("fs");
-
+const map = ['src/components/BaseComponents','src/components/BusinessComponents']
 function getFolder(path) {
   let components = [];
   const files = fs.readdirSync(path);
@@ -16,40 +16,31 @@ function getFolder(path) {
       components.push.apply(components, getFolder(path + "/" + item));
     }
   });
-  return components;
+  return components.filter(items => {
+    if(!map.includes(items))return items
+  });
 }
 
 module.exports = {
-  description: "创建页面",
+  description: "创建公共组件",
   prompts: [
     {
       type: "list",
       name: "path",
-      message: "请选择页面创建目录",
+      message: "请选择公共组件创建目录",
       choices: getFolder("src/components")
-    },
-    {
-      type: "input",
-      name: "component",
-      message: "请输入vue中组件名称",
-      validate: (v) => {
-        if (!v || v.trim === "") {
-          return "组件名称不能为空";
-        } else {
-          return true;
-        }
-      }
     }
   ],
   actions: (data) => {
     let relativePath = path.relative("src/components", data.path);
+    let list = relativePath.split('/')
     const actions = [
       {
         type: "add",
         path: `${data.path}/index.vue`,
         templateFile: "plop-tpls/component/index.hbs",
         data: {
-          componentName: `${relativePath}${data.component}`
+          componentName: `${list[list.length - 1]}`
         }
       }
     ];
