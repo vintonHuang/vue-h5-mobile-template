@@ -11,7 +11,6 @@ declare module "@vue/runtime-core" {
     RouterView: typeof import("vue-router")["RouterView"];
     Toast: typeof import("./../src/components/BaseComponents/Toast/index.vue")["default"];
     VanButton: typeof import("vant/es")["Button"];
-    VantButton: typeof import("vant/es")["tButton"];
   }
 }
 

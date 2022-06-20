@@ -15,7 +15,7 @@
   };
 </script>
 <script setup lang="ts">
-  import { useVModel } from "@/hooks/index";
+  import { useVModel } from "/@/hooks/index";
   import { computed } from "vue";
   const props = withDefaults(
     defineProps<{
