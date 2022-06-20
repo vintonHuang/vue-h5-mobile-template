@@ -14,6 +14,5 @@ module.exports = {
   htmlWhitespaceSensitivity: "strict", // 是否显示HTML文件中的空格。 有效选项： 'css' - 尊重CSS display属性的设置。 'strict' - 空格被认为是敏感的。 'ignore' - 空格被认为是不敏感的
   endOfLine: "auto",
   bracketSpacing: true, // 是否在对象的{}内部两侧加空格 true - { foo: bar } false - {foo: bar}.
-  jsxBracketSameLine: false, // 在jsx中把'>' 是否单独放一行
   quoteProps: "as-needed" // 对象的key是否用引号括起来,有三种选项 "as-needed"|"consistent"|"preserve"
 };

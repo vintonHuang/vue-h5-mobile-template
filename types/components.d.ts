@@ -5,8 +5,9 @@ import "@vue/runtime-core";
 
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
+    "* @Author": Vinton;
     BaseModal: typeof import("./../src/components/BaseComponents/BaseModal/index.vue")["default"];
-    HelloWorld: typeof import("./../src/components/HelloWorld.vue")["default"];
+    HelloWorld: typeof import("./../src/components/BusinessComponents/HelloWorld/index.vue")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
     Toast: typeof import("./../src/components/BaseComponents/Toast/index.vue")["default"];
