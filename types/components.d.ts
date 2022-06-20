@@ -10,7 +10,6 @@ declare module "@vue/runtime-core" {
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
     Toast: typeof import("./../src/components/BaseComponents/Toast/index.vue")["default"];
-    VanButton: typeof import("vant/es")["Button"];
   }
 }
 
