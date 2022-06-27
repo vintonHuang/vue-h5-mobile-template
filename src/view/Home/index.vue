@@ -1,14 +1,17 @@
+<!--
+ * @Author: Vinton
+ * @Date: 2022-06-24 15:25:04
+ * @Description: file content
+-->
 <template>
   <div>
     <!-- Your content -->
     Home
-    {{ msg }}
   </div>
 </template>
 
 <script setup name="HomePage">
   // const { proxy } = getCurrentInstance() // const router = useRouter() // const route = useRoute()
-  const msg = ref < string > "";
 </script>
 
 <style lang="less" scoped></style>
