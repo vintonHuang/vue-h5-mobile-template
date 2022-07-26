@@ -11,4 +11,8 @@ import "./utils/rem";
 import "./utils/vizier";
 import i18n from "./i18n";
 import "/@/styles/index.less";
+import VConsole from "vconsole";
+if (import.meta.env.VITE_APP_ENV !== "PRO") {
+  new VConsole();
+}
 createApp(App).use(router).use(i18n).use(Pinia).mount("#app");
