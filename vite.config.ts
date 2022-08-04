@@ -7,6 +7,8 @@ import { defineConfig, loadEnv, UserConfigExport, ConfigEnv } from "vite";
 import path, { resolve } from "path";
 import postCssPxToRem from "postcss-pxtorem";
 import { createVitePlugins } from "./config/vite/plugins";
+import proxy from "./config/vite/proxy";
+import { VITE_PORT } from "./config/constant";
 // https://vitejs.dev/config/
 const pathResolve = (dir: string) => {
   return resolve(process.cwd(), ".", dir);
@@ -20,29 +22,18 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
     base: env.VITE_APP_BASE_URL,
     plugins: createVitePlugins(isProduction),
     resolve: {
-      alias: [
-        {
-          find: "vue-i18n",
-          replacement: "vue-i18n/dist/vue-i18n.cjs.js"
-        },
-        // /@/xxxx => src/xxxx
-        {
-          find: /\/@\//,
-          replacement: pathResolve("src") + "/"
-        },
-        // /#/xxxx => types/xxxx
-        {
-          find: /\/#\//,
-          replacement: pathResolve("types") + "/"
-        }
-      ]
+      alias: {
+        "@": pathResolve("src") + "/",
+        "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js",
+        "#": pathResolve("types") + "/"
+      }
     },
     server: {
       host: "0.0.0.0",
-      port: 3000,
+      port: VITE_PORT,
       open: true,
       https: false,
-      proxy: {}
+      proxy: proxy
     },
     build: {
       terserOptions: {

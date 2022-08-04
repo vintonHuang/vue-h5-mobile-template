@@ -20,7 +20,7 @@ import { ConfigPagesPlugin } from "./pages";
 import { ConfigRestartPlugin } from "./restart";
 import { ConfigProgressPlugin } from "./progress";
 import { ConfigEruda } from "./eruda";
-import { ConfigStyleImport } from "./styleImport";
+// import { ConfigStyleImport } from "./styleImport";
 
 export function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (Plugin | Plugin[])[] = [
@@ -44,8 +44,8 @@ export function createVitePlugins(isBuild: boolean) {
     ConfigProgressPlugin()
   ];
 
-  //styleImport
-  vitePlugins.push(ConfigStyleImport());
+  //styleImport,我们的移动端框架这里不需要使用nui，使用的是有赞的ui库
+  // vitePlugins.push(ConfigStyleImport());
 
   // eruda
   vitePlugins.push(ConfigEruda());
