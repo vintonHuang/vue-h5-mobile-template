@@ -1,1 +1,9 @@
 @test-color: red;
+
+// 全屏适配背景
+.main-bg(@width, @height, @url) {
+  width: @width;
+  height: @height;
+  background-size: cover;
+  background-image: url(@url);
+}
