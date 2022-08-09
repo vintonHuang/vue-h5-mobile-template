@@ -5,9 +5,9 @@
  */
 import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 import { gwInitA, gwInitB, gwRequest } from "vizier-gateway";
-import { gateway, passErrorCode } from "/@/config";
+import { gateway, passErrorCode } from "@/config";
 import Storage from "./storage";
-import { baseModel } from "/@/interfaces/common";
+import { baseModel } from "@/interfaces/common";
 // 设置接口超时时间
 axios.defaults.timeout = 60000;
 axios.defaults.baseURL = import.meta.env.VITE_RESOURSE_BASW_URL === "PRO" ? `${process.env.BASE_URL}api/` : "/api";

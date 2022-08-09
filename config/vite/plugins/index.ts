@@ -19,7 +19,7 @@ import { ConfigCompressPlugin } from "./compress";
 import { ConfigPagesPlugin } from "./pages";
 import { ConfigRestartPlugin } from "./restart";
 import { ConfigProgressPlugin } from "./progress";
-import { ConfigEruda } from "./eruda";
+// import { ConfigEruda } from "./eruda";
 // import { ConfigStyleImport } from "./styleImport";
 
 export function createVitePlugins(isBuild: boolean) {
@@ -48,7 +48,7 @@ export function createVitePlugins(isBuild: boolean) {
   // vitePlugins.push(ConfigStyleImport());
 
   // eruda
-  vitePlugins.push(ConfigEruda());
+  // vitePlugins.push(ConfigEruda());
 
   // vite-plugin-svg-icons
   vitePlugins.push(ConfigSvgIconsPlugin(isBuild));
