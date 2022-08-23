@@ -13,7 +13,7 @@ routes.push({
 });
 //导入生成的路由数据
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.VITE_APP_BASE_URL as string),
   routes
 });
 
