@@ -76,11 +76,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx,scss,less,html}": [
-      "yarn lint",
       "prettier --write",
       "git add"
     ],
-    "*.{scss,less,html}": [
+    "*.{scss,less,style,html}": [
       "stylelint --fix",
       "prettier --write"
     ],

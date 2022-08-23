@@ -1,0 +1,56 @@
+:root {
+  .van-popup {
+    overflow-y: initial;
+    background: transparent;
+    max-width: 750px;
+  }
+
+  .van-toast {
+    background: var(--van-toast-background-color);
+  }
+
+  .van-popup--bottom {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .van-field {
+    background: transparent;
+
+    textarea,
+    input {
+      background: #b6e1e6;
+      height: 64px;
+      padding-left: 43px;
+      border-radius: 32px;
+      // opacity: 0.25;
+      color: #5abaf4;
+    }
+
+    textarea::placeholder,
+    input::placeholder {
+      color: #5abaf4;
+      font-size: 28px;
+      text-align: left;
+      // line-height: 28px;
+      font-weight: 500;
+      line-height: 104px;
+    }
+
+    textarea {
+      width: 534px;
+      height: 138px;
+      background: #fffcf4;
+      border: 1px solid #daaa95;
+      padding: 22px 18px 0;
+    }
+
+    textarea::placeholder {
+      color: #bf8363;
+      font-size: 20px;
+      font-weight: 400;
+      text-align: left;
+      line-height: 27px;
+    }
+  }
+}

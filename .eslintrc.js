@@ -1,6 +1,6 @@
 /*
  * @Author: Vinton
- * @Date: 2022-06-15 13:52:07
+ * @Date: 2022-07-15 16:06:01
  * @Description: file content
  */
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
       jsx: true
     }
   },
-  extends: ["plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended"],
+  extends: ["plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   rules: {
     "vue/script-setup-uses-vars": "error",
     "@typescript-eslint/ban-ts-ignore": "off",
@@ -50,6 +50,7 @@ module.exports = {
       }
     ],
     "space-before-function-paren": "off",
+
     "vue/attributes-order": "off",
     "vue/one-component-per-file": "off",
     "vue/html-closing-bracket-newline": "off",
