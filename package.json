@@ -9,10 +9,10 @@
     "build:pre": "vue-tsc --noEmit && vite build --mode pre",
     "build:pro": "vue-tsc --noEmit && vite build --mode production",
     "preview": "vite preview",
-    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "prettier": "prettier --write .",
-    "commit": "npm run prettier && git add . && git-cz",
+    "commit": "npm run lint:prettier && git add . && git-cz",
     "prepare": "husky install",
     "plop": "plop"
   },
@@ -75,14 +75,27 @@
     "vue-tsc": "^0.29.8"
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx,scss,less,html}": [
-      "prettier --write",
-      "git add"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
     ],
-    "*.{scss,less,style,html}": [
+    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+      "prettier --write--parser json"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{scss,less,styl,html}": [
       "stylelint --fix",
       "prettier --write"
     ],
-    "*.{ts,tsx,vue,js,jsx}": "eslint --cache --fix"
+    "*.md": [
+      "prettier --write"
+    ]
   }
 }
