@@ -9,7 +9,7 @@ import routes from "virtual:generated-pages";
 
 routes.push({
   path: "/",
-  redirect: "/login"
+  redirect: "/Home"
 });
 //导入生成的路由数据
 const router = createRouter({

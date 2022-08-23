@@ -8,7 +8,7 @@ vizier.init({
   // 配置表,以下配置为常用配置以及示例，详细配置表参见附表1
 
   // 上报地址
-  track_url: "/client_event",
+  track_url: `${import.meta.env.VITE_APP_API_URL}client_event`,
 
   // 系统ID
   system_id: 1006,
@@ -61,6 +61,10 @@ vizier.init({
   // 提供set_base_data（prop，to）方法，可以在任意时候增加baseData，
   // 提供set_base_data支持prop为对象，或prop为key，to为val
   // 目前活动页都是单页可通过baseData设置page_name(页面名称，默认title)/page_seq(页面编号)
-  baseData: {}
+  baseData: {
+    page_seq: 0,
+    stay_seconds: 0,
+    reserve: ""
+  }
 });
 window.vizier = vizier.instance;
