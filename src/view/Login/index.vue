@@ -4,14 +4,9 @@
  * @Description: file content
 -->
 <template>
-  <div>
-    <!-- Your content -->
-    Login
-  </div>
+  <div> 🎉烟雨楼H5活动移动端开发 </div>
 </template>
 
-<script setup name="LoginPage">
-  // const { proxy } = getCurrentInstance() // const router = useRouter() // const route = useRoute()
-</script>
+<script setup name="LoginPage"></script>
 
 <style lang="less" scoped></style>
