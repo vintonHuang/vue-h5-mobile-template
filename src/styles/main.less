@@ -1,9 +1,48 @@
-@test-color: red;
-
 // 全屏适配背景
 .main-bg(@width, @height, @url) {
   width: @width;
   height: @height;
   background-size: cover;
   background-image: url(@url);
+}
+
+// 多语言背景图
+.mixin-lang-bg(@url) {
+  // TODO: 新增语言
+  @langs: kr, th;
+
+  .loop-lang (@langs: @langs, @i: 1) when (@i <=length(@langs)) {
+    @item: extract(@langs, @i);
+    @real-url: replace(@url, "{lang}", @item);
+
+    &.@{item} {
+      background-image: url("@@{real-url}");
+    }
+
+    .loop-lang(@langs, (@i + 1));
+  }
+
+  .loop-lang();
+}
+
+.mixin-lang-more(@width, @height, @url, @size: cover) {
+  width: @width;
+  height: @height;
+  .mixin-lang-bg(@url);
+
+  background-repeat: no-repeat;
+  background-size: @size;
+}
+
+.over-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
